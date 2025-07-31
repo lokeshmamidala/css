@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document with TOC</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        ul#tableCont {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+        ul#tableCont li {
+            margin-bottom: 5px;
+        }
+        ul#tableCont li a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        ul#tableCont li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Table of Contents</h2>
+    <ul id="tableCont"></ul>
+    
+    <h1>Content</h1>
+    <h2>1.1</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+
+    <h3>1.1.1</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+
+    <h3>1.1.2</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+
+    <h2>1.2</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+
+    <h3>1.2.1</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+
+    <h3>1.2.2</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+
+    <h2>1.3</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+
+    <h3>1.3.1</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+
+    <h3>1.3.2</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+
+    <script>
+        const tableCont = document.getElementById('tableCont');
+        const headings = document.querySelectorAll('h1, h2, h3');
+
+        headings.forEach((heading, index) => {
+            const id = 'heading-' + index;
+            heading.setAttribute('id', id);
+
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = '#' + id;
+            a.innerText = heading.innerText;
+
+            if (heading.tagName === 'H2') {
+                li.style.marginLeft = '20px';
+            } else if (heading.tagName === 'H3') {
+                li.style.marginLeft = '40px';
+            }
+
+            li.appendChild(a);
+            tableCont.appendChild(li);
+        });
+    </script>
+
+</body>
+</html>

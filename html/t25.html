@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Password Form</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: palegoldenrod;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .form {
+      display: grid;
+      gap: 20px;
+      padding: 24px;
+      border: 2px solid black;
+      border-radius: 8px;
+      background-color: white;
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form class="form" id="myForm">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="text" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <input type="submit" id="submit" value="Submit">
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('myForm');
+    const username = document.getElementById('username');
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    form.addEventListener('submit', function(event) {
+  event.preventDefault(); 
+
+  if (username.value.trim() === '') {
+    alert("Enter username");
+    return;
+  }
+
+  if (email.value.trim() === '') {
+    alert("Enter email");
+    return;
+  }
+
+  if (password.value.trim() === '') {
+    alert("Enter password");
+    return;
+  }
+
+  const passwordValue = password.value;
+
+  const newpassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{6,}$/;
+
+  if (!newpassword.test(passwordValue)) {
+    alert("Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character, and be at least 6 characters long.");
+    return;
+  }
+
+  alert("Form submitted successfully!");
+  form.submit(); 
+});
+
+
+   
+
+  </script>
+</body>
+</html>

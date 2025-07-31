@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IRCTC Next Generation eTicketing System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-image: url('irctc.jpeg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    header {
+      background-color: rgba(19, 41, 75, 0.9);
+      padding: 15px 20px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-size: 22px;
+      margin: 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      width: 80%;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      border-radius: 8px;
+    }
+
+    form label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      background-color: #1e90ff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #0c7cd5;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="https://www.irctc.co.in/nget/assets/images/secondry-logo.png" alt="IRCTC Logo" height="40">
+      <h1>IRCTC eTicketing System</h1>
+    </div>
+  </header>
+
+  <div class="container">
+    <form>
+      <label for="from">From Station</label>
+      <input type="text" id="from" name="from" placeholder="e.g. Kakinada" required>
+
+      <label for="to">To Station</label>
+      <input type="text" id="to" name="to" placeholder="e.g. Hyderabad" required>
+
+      <label for="date">Journey Date</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="class">Travel Class</label>
+      <select id="class" name="class" required>
+        <option value="">Select Class</option>
+        <option value="1A">First AC (1A)</option>
+        <option value="2A">Second AC (2A)</option>
+        <option value="3A">Third AC (3A)</option>
+        <option value="SL">Sleeper (SL)</option>
+        <option value="2S">Second Sitting (2S)</option>
+      </select>
+
+      <button type="submit">Search Trains</button>
+    </form>
+  </div>
+
+</body>
+</html>

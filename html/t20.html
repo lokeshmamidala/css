@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unstopLogin Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f8f9fa; 
+            margin: 0;
+        
+
+        }
+
+        .lokesh {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px; 
+            max-width: 900px; 
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box; 
+            border-radius: 10px;
+        }
+
+        .card-image {
+            background-color: rgb(249, 177, 42);
+            background-image: url(data:image/png;base64,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);
+            background-size: cover; 
+            background-repeat: no-repeat;
+            background-position: center; /
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px 
+            min-height: 450px; 
+        }
+
+        .card-image img {
+            max-width: 100%;
+            height: auto;
+            display: block; 
+        }
+
+        .card-login {
+            width: 18rem; 
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius:10px;
+            background-color: #fff;
+            text-align: center;
+             height: auto; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            gap: 10px;
+        }
+
+        .card-login h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        .card-login input[type="button"],
+        .card-login input[type="email"],
+        .card-login input[type="password"],
+        .card-login input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px; 
+            margin-bottom: 5px; 
+            border: 1px solid rgb(232, 189, 189);
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box; 
+        }
+
+        .card-login input[type="button"] {
+            background-color:white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .card-login input[type="button"]:hover {
+            background-color: #e0e0e0;
+        }
+
+        .card-login input[type="email"],
+        .card-login input[type="password"] {
+            background-color: white;
+        }
+
+        .card-login input[type="submit"] {
+            background-color:skyblue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .card-login input[type="submit"]:hover {
+            background-color: darkblue;
+        }
+
+        .card-login p {
+            margin: 20px 0;
+            color: silver;
+            font-size: 14px;
+        }
+
+        .card-login a {
+            display: block;
+            margin-top: 10px;
+            color: lightblue;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .card-login a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 800px) {
+            .lokesh {
+                display: grid;
+                grid-template-columns: 1fr; 
+                max-width: 400px;
+            }
+            .card-image {
+                border-radius: 10px;
+            }
+            .card-login {
+                border-radius: 10px; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="lokesh">
+        <div class="card card-image">
+            <img src="https://d8it4huxumps7.cloudfront.net/uploads/images/login/login-img-3.png?d=734x734" alt="Login Illustration">
+        </div>
+        <div class="card card-login">
+            <h1>Log in</h1>
+
+            <input type="button" value="Continue with Google">
+            <input type="button" value="Login with LinkedIn">
+
+            <input type="email" placeholder="Email ID" required>
+            <input type="password" placeholder="Enter your password" required>
+
+            <a href="#">Forgot password?</a>
+
+            <input type="submit" value="Login">
+        </div>
+    </div>
+</body>
+</html>
